@@ -3,6 +3,7 @@ package com.apirest.clientes.models;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "cliente")
@@ -14,8 +15,12 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_cliente;
 
+    @Column(nullable = false)
     private String nombre;
+
     private String apellido;
+
+    @Column(nullable = false)
     private String email;
 
     @Column(name = "create_at")
