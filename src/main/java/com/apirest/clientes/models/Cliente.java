@@ -1,6 +1,9 @@
 package com.apirest.clientes.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
@@ -16,11 +19,16 @@ public class Cliente implements Serializable {
     private long id_cliente;
 
     @Column(nullable = false)
+    @NotEmpty
+    @Size(min=4, max=12)
     private String nombre;
 
+    @NotEmpty
     private String apellido;
 
-    @Column(nullable = false)
+    @NotEmpty
+    @Email
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(name = "create_at")

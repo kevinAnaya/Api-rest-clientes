@@ -26,8 +26,6 @@ public class ClienteServiceImpl implements IClienteService{
 
     @Override
     public Cliente save(Cliente cliente) {
-        LocalDate fecha = LocalDate.now();
-        cliente.setCreateAt(fecha);
         return iclienterepo.save(cliente);
     }
 
