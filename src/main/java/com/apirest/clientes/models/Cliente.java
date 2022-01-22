@@ -19,15 +19,15 @@ public class Cliente implements Serializable {
     private long id_cliente;
 
     @Column(nullable = false)
-    @NotEmpty
-    @Size(min=4, max=12)
+    @NotEmpty(message = "es obligatorio")
+    @Size(min=4, max=12, message = "4 caracteres como mínimo")
     private String nombre;
 
-    @NotEmpty
+    @NotEmpty(message = "es obligatorio")
     private String apellido;
 
-    @NotEmpty
-    @Email
+    @NotEmpty(message = "es obligatorio")
+    @Email(message = "formato de correo invalido")
     @Column(nullable = false, unique = true)
     private String email;
 
