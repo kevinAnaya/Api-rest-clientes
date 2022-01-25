@@ -3,6 +3,8 @@ package com.apirest.clientes.service;
 import com.apirest.clientes.models.Cliente;
 import com.apirest.clientes.repository.IClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -17,6 +19,11 @@ public class ClienteServiceImpl implements IClienteService{
     @Override
     public List<Cliente> findAll() {
         return (List<Cliente>) iclienterepo.findAll();
+    }
+
+    @Override
+    public Page<Cliente> findAll(Pageable pageable) {
+        return iclienterepo.findAll(pageable);
     }
 
     @Override
