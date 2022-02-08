@@ -3,6 +3,7 @@ package com.apirest.clientes.models;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -31,8 +32,11 @@ public class Cliente implements Serializable {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @NotNull(message = "es obligatorio")
     @Column(name = "create_at")
     private LocalDate createAt;
+
+    private String foto;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -76,5 +80,13 @@ public class Cliente implements Serializable {
 
     public void setCreateAt(LocalDate createAt) {
         this.createAt = createAt;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }
